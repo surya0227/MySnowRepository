@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Conference Room Booking Table" max_length="40" name="x_5516_conference_room_booking_table" type="collection">
+        <element label="End Date/Time" max_length="40" name="end_date_time" type="glide_date_time"/>
+        <element label="Room ID" max_length="40" name="room_id" type="string"/>
+        <element label="Start Date/Time" max_length="40" name="start_date_time" type="glide_date_time"/>
+    </element>
+</database>
