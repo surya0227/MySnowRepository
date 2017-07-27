@@ -1,0 +1,1650 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2017-07-27 21:30:45">
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_web_service_7e7d20200f6fd240a8586509b1050ed2</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_web_service"&gt;&lt;sys_web_service action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;function_name&gt;execute&lt;/function_name&gt;&lt;name&gt;EbondingIncident&lt;/name&gt;&lt;scoped_name&gt;EbondingIncident&lt;/scoped_name&gt;&lt;script&gt;&lt;![CDATA[try{
+	
+	var licenceKey = request.licenceKey;
+	var message = request.message;
+	
+	gs.log("incoming request licence key" + licenceKey);
+	gs.log("incoming request message" + message);
+	//==========checking if the license key belongs to DecisionOne
+	if (licenceKey == gs.getProperty('descisionone_licenceKey')){
+		
+		var incEbond = new incidentEbondingD1();
+		var res = incEbond.eventCodeCheck(message,'D1');
+		response.status = res;
+	}
+	//**********checking if the license key belongs to A&amp;O*******
+	else if(licenceKey == gs.getProperty('AandO_licensekey')){
+		
+		var incEbond = new incidentEbondingD1();
+		var res = incEbond.eventCodeCheck(message,'AO');
+		response.status = res;
+		
+	} else {
+		response.status = '400';
+	}
+	
+}
+catch (err){
+	gs.log('Error Script Include running stopped');
+	var object = res.inc_gr;
+	gs.eventQueue('d1.licenceKeyerror', object, 'ERR102');
+}
+
+]]&gt;&lt;/script&gt;&lt;short_description&gt;Incident update by D1 using this web service call&lt;/short_description&gt;&lt;sys_class_name&gt;sys_web_service&lt;/sys_class_name&gt;&lt;sys_created_by&gt;deepti.dixit&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2016-05-19 05:56:28&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_id&gt;7e7d20200f6fd240a8586509b1050ed2&lt;/sys_id&gt;&lt;sys_mod_count&gt;60&lt;/sys_mod_count&gt;&lt;sys_name&gt;EbondingIncident&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_web_service_7e7d20200f6fd240a8586509b1050ed2&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;sivaranjani.duvvuri&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2016-06-22 10:11:00&lt;/sys_updated_on&gt;&lt;wsdl&gt;https://barddev.service-now.com/EbondingIncident.do?WSDL&lt;/wsdl&gt;&lt;/sys_web_service&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>82b96d174f82220023bf3879b110c709</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>EbondingIncident</target_name>
+<type>Scripted Web Service</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_f0d7dbaa0f3f5200a8586509b1050ebc</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>TicketType</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 09:43:39</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>f0d7dbaa0f3f5200a8586509b1050ebc</sys_id><sys_mod_count>3</sys_mod_count><sys_name>TicketType</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_f0d7dbaa0f3f5200a8586509b1050ebc</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-14 13:21:03</sys_updated_on><type>string</type><value/></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>8ab96d174f82220023bf3879b110c709</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>TicketType</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_e5168aa70f7b9200a8586509b1050e57</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>City</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-10 06:20:26</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>e5168aa70f7b9200a8586509b1050e57</sys_id><sys_mod_count>0</sys_mod_count><sys_name>City</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_e5168aa70f7b9200a8586509b1050e57</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-10 06:20:26</sys_updated_on><type>string</type><value/></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>8eb96d174f82220023bf3879b110c708</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>City</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_d69cdfea0f3f5200a8586509b1050e5b</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>Subcategory</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 10:04:31</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>d69cdfea0f3f5200a8586509b1050e5b</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Subcategory</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_d69cdfea0f3f5200a8586509b1050e5b</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-07 10:04:31</sys_updated_on><type>string</type><value/></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>86b925934f02220023bf3879b110c77c</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>Subcategory</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_ce8642e70f7b9200a8586509b1050e03</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>Country</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-10 06:22:27</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>ce8642e70f7b9200a8586509b1050e03</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Country</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_ce8642e70f7b9200a8586509b1050e03</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-10 06:22:27</sys_updated_on><type>string</type><value/></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>8ab925934f02220023bf3879b110c77b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>Country</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_ce2682a70f7b9200a8586509b1050e0e</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>State/Province</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-10 06:20:46</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>ce2682a70f7b9200a8586509b1050e0e</sys_id><sys_mod_count>0</sys_mod_count><sys_name>State/Province</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_ce2682a70f7b9200a8586509b1050e0e</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-10 06:20:46</sys_updated_on><type>string</type><value/></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>86b96d174f82220023bf3879b110c709</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>State/Province</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_c1c7dbaa0f3f5200a8586509b1050ebb</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>ShortDescription</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 09:43:24</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>c1c7dbaa0f3f5200a8586509b1050ebb</sys_id><sys_mod_count>2</sys_mod_count><sys_name>ShortDescription</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_c1c7dbaa0f3f5200a8586509b1050ebb</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-10 06:19:33</sys_updated_on><type>string</type><value>testing incident</value></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>c2b925934f02220023bf3879b110c77c</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>ShortDescription</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_c1c7dbaa0f3f5200a8586509b1050ebb</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>ShortDescription</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 09:43:24</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>c1c7dbaa0f3f5200a8586509b1050ebb</sys_id><sys_mod_count>3</sys_mod_count><sys_name>ShortDescription</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_c1c7dbaa0f3f5200a8586509b1050ebb</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-14 13:21:00</sys_updated_on><type>string</type><value/></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>8ab96d174f82220023bf3879b110c708</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>ShortDescription</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_b9b797aa0f3f5200a8586509b1050ed1</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>Priority</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 09:43:11</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>b9b797aa0f3f5200a8586509b1050ed1</sys_id><sys_mod_count>2</sys_mod_count><sys_name>Priority</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_b9b797aa0f3f5200a8586509b1050ed1</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-14 13:20:57</sys_updated_on><type>string</type><value/></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>0ab925934f02220023bf3879b110c77b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>Priority</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_b9b797aa0f3f5200a8586509b1050ed1</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>Priority</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 09:43:11</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>b9b797aa0f3f5200a8586509b1050ed1</sys_id><sys_mod_count>1</sys_mod_count><sys_name>Priority</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_b9b797aa0f3f5200a8586509b1050ed1</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-07 09:52:54</sys_updated_on><type>string</type><value>P3</value></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>06b96d174f82220023bf3879b110c709</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>Priority</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_b4bc1bea0f3f5200a8586509b1050ec5</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>ReportedBy</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 10:04:57</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>b4bc1bea0f3f5200a8586509b1050ec5</sys_id><sys_mod_count>0</sys_mod_count><sys_name>ReportedBy</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_b4bc1bea0f3f5200a8586509b1050ec5</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-07 10:04:57</sys_updated_on><type>string</type><value/></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>0ab96d174f82220023bf3879b110c708</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>ReportedBy</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_f0d7dbaa0f3f5200a8586509b1050ebc</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>TicketType</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 09:43:39</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>f0d7dbaa0f3f5200a8586509b1050ebc</sys_id><sys_mod_count>2</sys_mod_count><sys_name>TicketType</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_f0d7dbaa0f3f5200a8586509b1050ebc</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-10 06:19:03</sys_updated_on><type>string</type><value>Incident</value></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>c2b925934f02220023bf3879b110c77b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>TicketType</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_fcccdfea0f3f5200a8586509b1050e8f</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>ConfigurationItem</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 10:05:15</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>fcccdfea0f3f5200a8586509b1050e8f</sys_id><sys_mod_count>0</sys_mod_count><sys_name>ConfigurationItem</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_fcccdfea0f3f5200a8586509b1050e8f</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-07 10:05:15</sys_updated_on><type>string</type><value/></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>8eb925934f02220023bf3879b110c77b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>ConfigurationItem</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_ui_section_ebe632a40f08e200a8586509b1050eeb</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_ui_section caption="" section_id="ebe632a40f08e200a8586509b1050eeb" sys_domain="global" table="sys_rest_message_headers" version="3" view=""><sys_ui_element action="INSERT_OR_UPDATE"><element>.begin_split</element><position>0</position><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-13 12:27:44</sys_created_on><sys_id>e7e632a40f08e200a8586509b1050eec</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="sys_rest_message_headers" sys_domain="global" view="Default view">ebe632a40f08e200a8586509b1050eeb</sys_ui_section><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-13 12:27:44</sys_updated_on><sys_user/><type>.begin_split</type></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>rest_message</element><position>1</position><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-13 12:27:44</sys_created_on><sys_id>2be632a40f08e200a8586509b1050eec</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="sys_rest_message_headers" sys_domain="global" view="Default view">ebe632a40f08e200a8586509b1050eeb</sys_ui_section><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-13 12:27:44</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>name</element><position>2</position><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-13 12:27:44</sys_created_on><sys_id>6be632a40f08e200a8586509b1050eec</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="sys_rest_message_headers" sys_domain="global" view="Default view">ebe632a40f08e200a8586509b1050eeb</sys_ui_section><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-13 12:27:44</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>.split</element><position>3</position><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-13 12:27:44</sys_created_on><sys_id>abe632a40f08e200a8586509b1050eec</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="sys_rest_message_headers" sys_domain="global" view="Default view">ebe632a40f08e200a8586509b1050eeb</sys_ui_section><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-13 12:27:44</sys_updated_on><sys_user/><type>.split</type></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>sys_scope</element><position>4</position><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-13 12:27:44</sys_created_on><sys_id>ebe632a40f08e200a8586509b1050eec</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="sys_rest_message_headers" sys_domain="global" view="Default view">ebe632a40f08e200a8586509b1050eeb</sys_ui_section><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-13 12:27:44</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>value</element><position>5</position><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-13 12:27:44</sys_created_on><sys_id>2fe632a40f08e200a8586509b1050eec</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="sys_rest_message_headers" sys_domain="global" view="Default view">ebe632a40f08e200a8586509b1050eeb</sys_ui_section><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-13 12:27:44</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>.end_split</element><position>6</position><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-13 12:27:44</sys_created_on><sys_id>6fe632a40f08e200a8586509b1050eec</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="sys_rest_message_headers" sys_domain="global" view="Default view">ebe632a40f08e200a8586509b1050eeb</sys_ui_section><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-13 12:27:44</sys_updated_on><sys_user/><type>.end_split</type></sys_ui_element><sys_ui_section action="INSERT_OR_UPDATE"><caption/><header>false</header><name>sys_rest_message_headers</name><roles/><sys_class_name>sys_ui_section</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-13 12:27:44</sys_created_on><sys_customer_update>true</sys_customer_update><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>ebe632a40f08e200a8586509b1050eeb</sys_id><sys_mod_count>0</sys_mod_count><sys_name>sys_rest_message_headers</sys_name><sys_overrides/><sys_package display_value="Text Index" source="com.glide.text_index">9fac90014f9a0200f2fa3f828110c7d6</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_ui_section_ebe632a40f08e200a8586509b1050eeb</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-13 12:27:44</sys_updated_on><sys_user/><title>true</title><view display_value="Default view" name="NULL">Default view</view><view_name/></sys_ui_section></sys_ui_section></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>86b96d174f82220023bf3879b110c708</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table>sys_rest_message_headers</table>
+<target_name>HTTP Headers</target_name>
+<type>Form Layout</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_include_72b699350f2f1640a8586509b1050e94</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;global.incidentEbondingD1&lt;/api_name&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;description&gt;Updating Incident from the XML Document for AandO and D1&lt;/description&gt;&lt;name&gt;incidentEbondingD1&lt;/name&gt;&lt;script&gt;&lt;![CDATA[var incidentEbondingD1 = Class.create();
+incidentEbondingD1.prototype = {
+	_initialize: function() {
+		
+	},
+	
+	eventCodeCheck: function(message,temp) {
+		try {
+			var xmlDoc = new XMLDocument(message, true);
+			
+			//reading the values from the XML document
+			var custktNode = xmlDoc.getNodeText('//Custkt');
+			var eventCodeNode = xmlDoc.getNodeText('//EventCode');
+			var commentNode = xmlDoc.getNodeText('//Comment');
+			var callStatusNode = xmlDoc.getNodeText('//CallStatus');
+			var decisiononenumber = xmlDoc.getNodeText('//Ventkt');
+			var statext = xmlDoc.getNodeText('//Statext');
+			var Assignedto = xmlDoc.getNodeText('//FEName');
+			var usrID = xmlDoc.getNodeText('//FENum');
+			var servicetype = xmlDoc.getNodeText('//ServiceType');
+			var eta = xmlDoc.getNodeText('//Eta');
+			var resolution = xmlDoc.getNodeText('//ResolutionCode');
+			var closenotes = xmlDoc.getNodeText('//Fixtext');
+			var arrive = xmlDoc.getNodeText('//Arrive');
+			
+			
+			
+			var inc_gr = new GlideRecord('incident');
+			inc_gr.addQuery('number', custktNode);
+			inc_gr.addQuery('active', true);
+			inc_gr.query();
+			
+			var newComment;
+			var usr = this.findUser(usrID); //getting sys_id of the user
+			if (custktNode!='' &amp;&amp; inc_gr.hasNext()) {
+				inc_gr.next();
+				gs.log("evnt Code: "+eventCodeNode);
+				
+				//Acknolwedgment from decision one to service now
+				if(eventCodeNode) {
+					gs.log('inside');
+					//check for mandatory data for event AC, if not found throw error 101
+					if(eventCodeNode == 'OC'){
+						if (decisiononenumber != '') {
+							inc_gr.comments = commentNode;
+							inc_gr.setValue('u_decision_one_number' , decisiononenumber);
+							inc_gr.setValue('state' , 9);
+							inc_gr.update();
+						} else {
+							gs.eventQueue('d1Mandatoryerror' , inc_gr , 'ERR101');
+						}
+						return "202";
+					}
+					
+					// D1 to Snow when the incident is assigned to a user
+					if (eventCodeNode == 'AC') {
+						//check for mandatory data for event AC, if not found throw error 101
+						gs.log('event matched');
+						if (usr != '') {
+							gs.log('updating');
+							inc_gr.comments = commentNode;
+							inc_gr.setValue('assigned_to', usr);
+							inc_gr.setValue('state' , 2);
+							inc_gr.setValue('u_decision_one_number' , decisiononenumber);
+							inc_gr.update();
+						} else {
+							gs.eventQueue('d1Mandatoryerror' , inc_gr , 'ERR101');
+							gs.log('Error 101 loged');
+						}
+						return "202";
+						
+					}
+					
+					//reading response for comments update
+					else if(eventCodeNode == 'ET' || eventCodeNode == 'CB' || eventCodeNode == 'ER'){
+						if(eta != null || eta != 'null' || eta != ''){
+							newComment = commentNode + eta;
+						} else {
+							newComment = commentNode;
+						}
+						inc_gr.comments = newComment;
+						inc_gr.update();
+						
+						gs.log('TTTT2 record udpated');
+						return "202";
+					}
+					
+					//reading response for status update
+					else if (eventCodeNode == 'CA'){
+						inc_gr.comments = commentNode;
+						inc_gr.setValue('state' , 8); //change state to inProgress
+						inc_gr.update();
+						return "202";
+					}
+					
+					//reading response for incident resolved
+					else if(eventCodeNode == 'CC'){
+						if(eta != null || eta != 'null'){
+							newComment = commentNode + eta;
+						} else {
+							newComment = commentNode;
+						}
+						inc_gr.comments = newComment;
+						//check for mandatory data for event AC, if not found throw error 101
+						if( temp == 'D1'){
+							if (resolution != '' &amp;&amp; closenotes != '') {
+								inc_gr.setValue('state' ,6); //change state to Resolved
+								inc_gr.setValue('close_code', resolution);
+								inc_gr.setValue('comments', closenotes);
+								inc_gr.update();
+							} else {
+								gs.eventQueue('d1Mandatoryerror' , inc_gr , 'ERR101');
+								gs.log('Error 101 loged');
+							}
+						}
+						else {
+							if (resolution != '' &amp;&amp; closenotes != '') {
+								inc_gr.setValue('state' ,6); //change state to Resolved
+								inc_gr.setValue('close_code', commentNode);
+								inc_gr.setValue('comments', commentNode);
+								inc_gr.update();
+							} else {
+								gs.eventQueue('d1Mandatoryerror' , inc_gr , 'ERR101');
+								gs.log('Error 101 loged');
+							}
+						}
+						gs.log('record udpated');
+						return "202";
+					}
+				} else {
+					//if no valid event found throw error 103
+					gs.eventQueue('incident.d1error' , inc_gr , 'ERR103');
+					gs.log('Error 103 loged');
+				}
+			}
+			//return "400";
+		}
+		catch(e) {
+			gs.log('Exception in SI: incidentEbondingD1 @ line #'+e.lineNumber+', message: '+e.message);
+			gs.eventQueue('incident.d1error' , inc_gr , 'ERR103');
+		}
+	},
+	
+	findUser: function(uid){
+		// function to fetch the sys_id of assigned to user
+		
+		var gr = new GlideRecord('sys_user');
+		gr.addEncodedQuery('user_name='+uid);
+		gr.query();
+		if(gr.hasNext()) {
+			gr.next();
+			gs.log('sys_id' + gr.sys_id + ' ' + uid);
+			return gr.sys_id;// return User sys_id
+		}else return '';//return empty if no match found
+	},
+	
+	type: 'incidentEbondingD1'
+};]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;puneeth.r&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2016-05-23 06:13:48&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_id&gt;72b699350f2f1640a8586509b1050e94&lt;/sys_id&gt;&lt;sys_mod_count&gt;53&lt;/sys_mod_count&gt;&lt;sys_name&gt;incidentEbondingD1&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_72b699350f2f1640a8586509b1050e94&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;sivaranjani.duvvuri&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2016-06-22 10:04:26&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>ceb925934f02220023bf3879b110c77b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>incidentEbondingD1</target_name>
+<type>Script Include</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_df3a53ea0f3f5200a8586509b1050e3e</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;true&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;true&lt;/action_update&gt;&lt;active&gt;true&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;incident&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;true&lt;/execute_function&gt;&lt;filter_condition table="incident"&gt;assignment_group=8cd808fe0f6a9a002033a218b1050e35^sys_updated_by!=AnOSOAP^sys_updated_by!=soap user^assignment_groupVALCHANGES^EQ&lt;item display_table="sys_user_group" display_value="A&amp;amp;O_DISPATCH_SUPPORT" endquery="false" field="assignment_group" goto="false" newquery="false" operator="=" or="false" value="8cd808fe0f6a9a002033a218b1050e35"/&gt;&lt;item endquery="false" field="sys_updated_by" goto="false" newquery="false" operator="!=" or="false" value="AnOSOAP"/&gt;&lt;item endquery="false" field="sys_updated_by" goto="false" newquery="false" operator="!=" or="false" value="soap user"/&gt;&lt;item endquery="false" field="assignment_group" goto="false" newquery="false" operator="VALCHANGES" or="false" value=""/&gt;&lt;item endquery="true" field="" goto="false" newquery="false" operator="" or="false" value=""/&gt;&lt;/filter_condition&gt;&lt;message/&gt;&lt;name&gt;AandO Integration Insert&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[function onAfter(current, previous) {
+	//This function will be automatically called when this rule is processed.
+	try {
+		gs.log(current.priority + '=================in incident creation=============' + previous.priority);
+		var r = new sn_ws.RESTMessageV2('AandO', 'post');
+		r.setStringParameter('Action', 'CreateTicket');
+		r.setStringParameter('TicketType', 'Incident');
+		r.setStringParameter('Category', current.category);
+		r.setStringParameter('Description', current.description);
+		r.setStringParameter('HomePhone', current.caller_id.phone);
+		r.setStringParameter('LocationID', current.cmdb_ci.location.u_bard_sitenumber.u_site_number);
+		r.setStringParameter('Location', current.cmdb_ci.location);
+		r.setStringParameter('Street', current.cmdb_ci.location.street);
+		r.setStringParameter('City', current.cmdb_ci.location.city);
+		r.setStringParameter('ZIPCode', current.cmdb_ci.location.postal_code);
+		r.setStringParameter('State/Province', current.cmdb_ci.location.state);
+		r.setStringParameter('Country', current.cmdb_ci.location.country);
+		r.setStringParameter('Email', current.cmdb_ci.email);
+		r.setStringParameter('Number', current.number);
+		r.setStringParameter('Company', 'Bard');
+		r.setStringParameter('ReportedBy', current.caller_id.getDisplayValue());
+		var priority = '';
+		if(current.priority == '1')
+			priority = 'P1';
+		else if (current.priority == '2')
+			priority = 'P2';
+		else if(current.priority == '3')
+			priority = 'P3';
+		else if(current.priority == '4')
+			priority = 'P4';
+		r.setStringParameter('Priority', priority);
+		r.setStringParameter('ShortDescription', current.short_description);
+		r.setStringParameter('Subcategory', current.subcategory);
+		r.setStringParameter('ConfigurationItem', current.cmdb_ci.name);
+		var response = r.execute();
+		var responseBody = response.getBody();
+		var httpStatus = response.getStatusCode();
+		gs.log('status code of integration New ' + httpStatus);
+		gs.log('====Response Body of Integration===' + responseBody);
+		if (httpStatus == '200') {
+			current.u_decision_one_number = responseBody;
+			current.state = 9;
+			current.update();
+		}
+	}
+	catch(ex) {
+		var message = ex.getMessage();
+	}
+	
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;sivaranjani.duvvuri&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2016-06-07 09:55:08&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;df3a53ea0f3f5200a8586509b1050e3e&lt;/sys_id&gt;&lt;sys_mod_count&gt;37&lt;/sys_mod_count&gt;&lt;sys_name&gt;AandO Integration Insert&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_df3a53ea0f3f5200a8586509b1050e3e&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;sivaranjani.duvvuri&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2016-06-22 10:10:05&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;after&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=df3a53ea0f3f5200a8586509b1050e3e"/&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>cab96d174f82220023bf3879b110c709</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table>incident</table>
+<target_name>AandO Integration Insert</target_name>
+<type>Business Rule</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_df3a53ea0f3f5200a8586509b1050e3e</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;true&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;true&lt;/action_update&gt;&lt;active&gt;true&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;incident&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;true&lt;/execute_function&gt;&lt;filter_condition table="incident"&gt;assignment_group=8cd808fe0f6a9a002033a218b1050e35^sys_updated_by!=AnOSOAP^sys_updated_by!=soap user^assignment_groupVALCHANGES^EQ&lt;item display_table="sys_user_group" display_value="A&amp;amp;O_DISPATCH_SUPPORT" endquery="false" field="assignment_group" goto="false" newquery="false" operator="=" or="false" value="8cd808fe0f6a9a002033a218b1050e35"/&gt;&lt;item endquery="false" field="sys_updated_by" goto="false" newquery="false" operator="!=" or="false" value="AnOSOAP"/&gt;&lt;item endquery="false" field="sys_updated_by" goto="false" newquery="false" operator="!=" or="false" value="soap user"/&gt;&lt;item endquery="false" field="assignment_group" goto="false" newquery="false" operator="VALCHANGES" or="false" value=""/&gt;&lt;item endquery="true" field="" goto="false" newquery="false" operator="" or="false" value=""/&gt;&lt;/filter_condition&gt;&lt;message/&gt;&lt;name&gt;AandO integration Insert&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[	function onAfter(current, previous) {
+	//This function will be automatically called when this rule is processed.
+	try {
+		gs.log(current.priority + '=================in incident creation=============' + previous.priority);
+		var r = new sn_ws.RESTMessageV2('AandO', 'post');
+		r.setStringParameter('Action', 'CreateTicket');
+		r.setStringParameter('TicketType', 'Incident');
+		r.setStringParameter('Category', current.category);
+		r.setStringParameter('Description', current.description);
+		r.setStringParameter('HomePhone', current.caller_id.phone);
+		r.setStringParameter('LocationID', '98884');
+		r.setStringParameter('Location', current.location);
+		r.setStringParameter('Street', current.caller_id.location.street);
+		r.setStringParameter('City', current.location.city);
+		r.setStringParameter('ZIPCode', current.caller_id.location.postal_code);
+		r.setStringParameter('State/Province', current.caller_id.location.state);
+		r.setStringParameter('Country', current.caller_id.location.country);
+		r.setStringParameter('Email', current.caller_id.email);
+		r.setStringParameter('Number', current.number);
+		r.setStringParameter('Company', 'Bard');
+		r.setStringParameter('ReportedBy', current.caller_id.getDisplayValue());
+		var priority = '';
+		if(current.priority == '1')
+			priority = 'P1';
+		else if (current.priority == '2')
+			priority = 'P2';
+		else if(current.priority == '3')
+			priority = 'P3';
+		else if(current.priority == '4')
+			priority = 'P4';
+		r.setStringParameter('Priority', priority);
+		r.setStringParameter('ShortDescription', current.short_description);
+		r.setStringParameter('Subcategory', current.subcategory);
+		r.setStringParameter('ConfigurationItem', current.cmdb_ci.name);
+		var response = r.execute();
+		var responseBody = response.getBody();
+		var httpStatus = response.getStatusCode();
+		gs.log('status code of integration New ' + httpStatus);
+		gs.log('response Body' + responseBody);
+		if (httpStatus == '200') {
+			current.u_decision_one_number = responseBody;
+			current.state = 9;			
+			current.update();
+		}
+	}
+	catch(ex) {
+		var message = ex.getMessage();
+	}
+	
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;sivaranjani.duvvuri&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2016-06-07 09:55:08&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;df3a53ea0f3f5200a8586509b1050e3e&lt;/sys_id&gt;&lt;sys_mod_count&gt;34&lt;/sys_mod_count&gt;&lt;sys_name&gt;AandO integration Insert&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_df3a53ea0f3f5200a8586509b1050e3e&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;puneeth.r&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2016-06-17 11:32:56&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;after&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=df3a53ea0f3f5200a8586509b1050e3e"/&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>06b925934f02220023bf3879b110c77b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table>incident</table>
+<target_name>AandO integration Insert</target_name>
+<type>Business Rule</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_5632562c0fc4e200a8586509b1050e1d</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;false&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;true&lt;/action_update&gt;&lt;active&gt;true&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;incident&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;true&lt;/execute_function&gt;&lt;filter_condition table="incident"&gt;commentsVALCHANGES^sys_updated_by!=AnOSOAP^sys_updated_by!=soap user^u_decision_one_numberISNOTEMPTY^EQ&lt;item endquery="false" field="comments" goto="false" newquery="false" operator="VALCHANGES" or="false" value=""/&gt;&lt;item endquery="false" field="sys_updated_by" goto="false" newquery="false" operator="!=" or="false" value="AnOSOAP"/&gt;&lt;item endquery="false" field="sys_updated_by" goto="false" newquery="false" operator="!=" or="false" value="soap user"/&gt;&lt;item endquery="false" field="u_decision_one_number" goto="false" newquery="false" operator="ISNOTEMPTY" or="false" value=""/&gt;&lt;item endquery="true" field="" goto="false" newquery="false" operator="" or="false" value=""/&gt;&lt;/filter_condition&gt;&lt;message/&gt;&lt;name&gt;AnO Comments Update&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[function onAfter(current, previous) {
+	//This function will be automatically called when this rule is processed.
+	try {
+		var r = new sn_ws.RESTMessageV2('AandO', 'post');
+		r.setStringParameter('Action', 'AddComment');
+		r.setStringParameter('Description', current.description);
+		r.setStringParameter('Number', current.number);
+		r.setStringParameter('FVTicketID' ,current.u_decision_one_number);
+		r.setStringParameter('Comment', current.comments.getJournalEntry(1));
+		r.setStringParameter('UpdatedBy', current.sys_updated_by.getDisplayValue());
+			
+		var response = r.execute();
+		var responseBody = response.getBody();
+		var httpStatus = response.getStatusCode();
+		gs.log(responseBody + '=======status code of integration Comments update ' + httpStatus);
+	}
+	catch(ex) {
+		var message = ex.getMessage();
+	}
+	
+	
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;sivaranjani.duvvuri&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2016-06-13 09:55:19&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;5632562c0fc4e200a8586509b1050e1d&lt;/sys_id&gt;&lt;sys_mod_count&gt;11&lt;/sys_mod_count&gt;&lt;sys_name&gt;AnO Comments Update&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_5632562c0fc4e200a8586509b1050e1d&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;deepti.dixit&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2016-06-16 11:15:15&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;after&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=5632562c0fc4e200a8586509b1050e1d"/&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>ceb96d174f82220023bf3879b110c708</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table>incident</table>
+<target_name>AnO Comments Update</target_name>
+<type>Business Rule</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_5632562c0fc4e200a8586509b1050e1d</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;false&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;true&lt;/action_update&gt;&lt;active&gt;true&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;incident&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;true&lt;/execute_function&gt;&lt;filter_condition table="incident"&gt;commentsVALCHANGES^sys_updated_by!=AnOSOAP^sys_updated_by!=soap user^u_decision_one_numberISNOTEMPTY^EQ&lt;item endquery="false" field="comments" goto="false" newquery="false" operator="VALCHANGES" or="false" value=""/&gt;&lt;item endquery="false" field="sys_updated_by" goto="false" newquery="false" operator="!=" or="false" value="AnOSOAP"/&gt;&lt;item endquery="false" field="sys_updated_by" goto="false" newquery="false" operator="!=" or="false" value="soap user"/&gt;&lt;item endquery="false" field="u_decision_one_number" goto="false" newquery="false" operator="ISNOTEMPTY" or="false" value=""/&gt;&lt;item endquery="true" field="" goto="false" newquery="false" operator="" or="false" value=""/&gt;&lt;/filter_condition&gt;&lt;message/&gt;&lt;name&gt;AandO Comments Update&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[function onAfter(current, previous) {
+	//Business rule will run when comments are updated in the incident record.
+	try {
+		var r = new sn_ws.RESTMessageV2('AandO', 'post');
+		r.setStringParameter('Action', 'AddComment');
+		r.setStringParameter('Description', current.description);
+		r.setStringParameter('Number', current.number);
+		r.setStringParameter('FVTicketID' ,current.u_decision_one_number);
+		r.setStringParameter('Comment', current.comments.getJournalEntry(1));
+		r.setStringParameter('UpdatedBy', current.sys_updated_by.getDisplayValue());
+		
+		var response = r.execute();
+		var responseBody = response.getBody();
+		var httpStatus = response.getStatusCode();
+		
+		gs.log(responseBody + '====status code of integration Comments update===== ' + httpStatus);
+	}
+	catch(ex) {
+		var message = ex.getMessage();
+	}
+	
+	
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;sivaranjani.duvvuri&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2016-06-13 09:55:19&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;5632562c0fc4e200a8586509b1050e1d&lt;/sys_id&gt;&lt;sys_mod_count&gt;16&lt;/sys_mod_count&gt;&lt;sys_name&gt;AandO Comments Update&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_5632562c0fc4e200a8586509b1050e1d&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;sivaranjani.duvvuri&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2016-06-22 10:09:48&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;after&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=5632562c0fc4e200a8586509b1050e1d"/&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>c6b925934f02220023bf3879b110c77c</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table>incident</table>
+<target_name>AandO Comments Update</target_name>
+<type>Business Rule</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_0118a7ae0f3f5200a8586509b1050e96</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;false&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;true&lt;/action_update&gt;&lt;active&gt;true&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;incident&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;true&lt;/execute_function&gt;&lt;filter_condition table="incident"&gt;priorityVALCHANGES^assignment_group=8cd808fe0f6a9a002033a218b1050e35^sys_updated_by!=AnOSOAP^sys_updated_by!=soap user^u_decision_one_numberISNOTEMPTY^EQ&lt;item endquery="false" field="priority" goto="false" newquery="false" operator="VALCHANGES" or="false" value=""/&gt;&lt;item display_table="sys_user_group" display_value="A&amp;amp;O_DISPATCH_SUPPORT" endquery="false" field="assignment_group" goto="false" newquery="false" operator="=" or="false" value="8cd808fe0f6a9a002033a218b1050e35"/&gt;&lt;item endquery="false" field="sys_updated_by" goto="false" newquery="false" operator="!=" or="false" value="AnOSOAP"/&gt;&lt;item endquery="false" field="sys_updated_by" goto="false" newquery="false" operator="!=" or="false" value="soap user"/&gt;&lt;item endquery="false" field="u_decision_one_number" goto="false" newquery="false" operator="ISNOTEMPTY" or="false" value=""/&gt;&lt;item endquery="true" field="" goto="false" newquery="false" operator="" or="false" value=""/&gt;&lt;/filter_condition&gt;&lt;message/&gt;&lt;name&gt;Priority change AandO&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[function onAfter(current, previous) {
+	//This function will be automatically called when this rule is processed.
+	gs.log(current.priority + '=================in priority update=============' + previous.priority);
+	try {
+		if (current.priority != previous.priority) {
+			var r = new sn_ws.RESTMessageV2('AandO', 'post');
+			r.setStringParameter('Action', 'UpdateTicket');
+			r.setStringParameter('Description', current.description);
+			r.setStringParameter('FVTicketID' ,current.u_decision_one_number);
+			r.setStringParameter('Number', current.number);
+			r.setStringParameter('LocationID', '98884');
+			var priority = '';
+			if(current.priority == '1')
+				priority = 'P1';
+			else if (current.priority == '2')
+				priority = 'P2';
+			else if(current.priority == '3')
+				priority = 'P3';
+			else if(current.priority == '4')
+				priority = 'P4';
+			r.setStringParameter('Priority', priority);
+			r.setStringParameter('UpdatedBy', current.sys_updated_by.getDisplayValue());
+			
+			var response = r.execute();
+			var responseBody = response.getBody();
+			var httpStatus = response.getStatusCode();
+			gs.log(responseBody + '===status code of integration Priority update ' + httpStatus + priority);
+		}
+	}
+	catch(ex) {
+		var message = ex.getMessage();
+	}
+	
+	
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;sivaranjani.duvvuri&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2016-06-07 10:55:05&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;0118a7ae0f3f5200a8586509b1050e96&lt;/sys_id&gt;&lt;sys_mod_count&gt;20&lt;/sys_mod_count&gt;&lt;sys_name&gt;Priority change AandO&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_0118a7ae0f3f5200a8586509b1050e96&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;saumyan&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2016-06-16 10:47:21&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;after&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=0118a7ae0f3f5200a8586509b1050e96"/&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>cab925934f02220023bf3879b110c77b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table>incident</table>
+<target_name>Priority change AandO</target_name>
+<type>Business Rule</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_0118a7ae0f3f5200a8586509b1050e96</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;false&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;true&lt;/action_update&gt;&lt;active&gt;true&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;incident&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;true&lt;/execute_function&gt;&lt;filter_condition table="incident"&gt;priorityVALCHANGES^assignment_group=8cd808fe0f6a9a002033a218b1050e35^sys_updated_by!=AnOSOAP^sys_updated_by!=soap user^u_decision_one_numberISNOTEMPTY^EQ&lt;item endquery="false" field="priority" goto="false" newquery="false" operator="VALCHANGES" or="false" value=""/&gt;&lt;item display_table="sys_user_group" display_value="A&amp;amp;O_DISPATCH_SUPPORT" endquery="false" field="assignment_group" goto="false" newquery="false" operator="=" or="false" value="8cd808fe0f6a9a002033a218b1050e35"/&gt;&lt;item endquery="false" field="sys_updated_by" goto="false" newquery="false" operator="!=" or="false" value="AnOSOAP"/&gt;&lt;item endquery="false" field="sys_updated_by" goto="false" newquery="false" operator="!=" or="false" value="soap user"/&gt;&lt;item endquery="false" field="u_decision_one_number" goto="false" newquery="false" operator="ISNOTEMPTY" or="false" value=""/&gt;&lt;item endquery="true" field="" goto="false" newquery="false" operator="" or="false" value=""/&gt;&lt;/filter_condition&gt;&lt;message/&gt;&lt;name&gt;AandO Priority Update&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[function onAfter(current, previous) {
+	//This function will be automatically called when this rule is processed.
+	try {
+		
+		if (current.priority != previous.priority &amp;&amp; (previous.priority!='0' || previous.priority!='') ) {
+			var r = new sn_ws.RESTMessageV2('AandO', 'post');
+			r.setStringParameter('Action', 'UpdateTicket');
+			r.setStringParameter('Description', current.description);
+			r.setStringParameter('FVTicketID' ,current.u_decision_one_number);
+			r.setStringParameter('Number', current.number);
+			r.setStringParameter('LocationID', '98884');
+			
+			var priority = '';
+			if(current.priority == '1')
+				priority = 'P1';
+			else if (current.priority == '2')
+				priority = 'P2';
+			else if(current.priority == '3')
+				priority = 'P3';
+			else if(current.priority == '4')
+				priority = 'P4';
+			r.setStringParameter('Priority', priority);
+			r.setStringParameter('UpdatedBy', current.sys_updated_by.getDisplayValue());
+			
+			var response = r.execute();
+			var responseBody = response.getBody();
+			var httpStatus = response.getStatusCode();
+			gs.log(responseBody + '=== status code of integration Priority update===' + httpStatus + priority);
+		}
+	}
+	catch(ex) {
+		var message = ex.getMessage();
+	}
+	
+	
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;sivaranjani.duvvuri&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2016-06-07 10:55:05&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;0118a7ae0f3f5200a8586509b1050e96&lt;/sys_id&gt;&lt;sys_mod_count&gt;25&lt;/sys_mod_count&gt;&lt;sys_name&gt;AandO Priority Update&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_0118a7ae0f3f5200a8586509b1050e96&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;sivaranjani.duvvuri&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2016-06-22 10:09:35&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;after&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=0118a7ae0f3f5200a8586509b1050e96"/&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>c6b96d174f82220023bf3879b110c709</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table>incident</table>
+<target_name>AandO Priority Update</target_name>
+<type>Business Rule</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_headers_7b34572a0f3f5200a8586509b1050ee1</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_headers"><sys_rest_message_headers action="INSERT_OR_UPDATE"><name>content-type</name><rest_message display_value="AandO">7d245f6a0f3f5200a8586509b1050ebf</rest_message><sys_class_name>sys_rest_message_headers</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 09:28:54</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>7b34572a0f3f5200a8586509b1050ee1</sys_id><sys_mod_count>0</sys_mod_count><sys_name>content-type</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_headers_7b34572a0f3f5200a8586509b1050ee1</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-07 09:28:54</sys_updated_on><value>application/json</value></sys_rest_message_headers></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>cab96d174f82220023bf3879b110c708</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>content-type</target_name>
+<type>HTTP Headers</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_param_defs_8384db6a0f3f5200a8586509b1050e65</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_param_defs"><sys_rest_message_fn_param_defs action="INSERT_OR_UPDATE"><name>content-type</name><order>100</order><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_param_defs</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 09:30:24</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>8384db6a0f3f5200a8586509b1050e65</sys_id><sys_mod_count>0</sys_mod_count><sys_name>content-type</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_param_defs_8384db6a0f3f5200a8586509b1050e65</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-07 09:30:24</sys_updated_on><value>application/JSON</value></sys_rest_message_fn_param_defs></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>46b96d174f82220023bf3879b110c708</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>content-type</target_name>
+<type>HTTP Query Parameters</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_afa5cea70f7b9200a8586509b1050eed</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>Action</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-10 06:18:41</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>afa5cea70f7b9200a8586509b1050eed</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Action</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_afa5cea70f7b9200a8586509b1050eed</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-10 06:18:41</sys_updated_on><type>string</type><value/></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>42b925934f02220023bf3879b110c77c</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>Action</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_a10646a70f7b9200a8586509b1050ebe</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>ZIPCode</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-10 06:20:11</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>a10646a70f7b9200a8586509b1050ebe</sys_id><sys_mod_count>0</sys_mod_count><sys_name>ZIPCode</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_a10646a70f7b9200a8586509b1050ebe</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-10 06:20:11</sys_updated_on><type>string</type><value/></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>86b925934f02220023bf3879b110c77b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>ZIPCode</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_0eec53ea0f3f5200a8586509b1050e75</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>HomePhone</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 10:05:51</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>0eec53ea0f3f5200a8586509b1050e75</sys_id><sys_mod_count>0</sys_mod_count><sys_name>HomePhone</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_0eec53ea0f3f5200a8586509b1050e75</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-07 10:05:51</sys_updated_on><type>string</type><value/></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>c2b96d174f82220023bf3879b110c709</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>HomePhone</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_0b389d190fc42600efa3a218b1050e3e</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>Comment</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-15 13:29:29</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>0b389d190fc42600efa3a218b1050e3e</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Comment</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_0b389d190fc42600efa3a218b1050e3e</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-15 13:29:29</sys_updated_on><type>string</type><value/></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>c6b96d174f82220023bf3879b110c708</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>Comment</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_06acdfea0f3f5200a8586509b1050e75</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>Description</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 10:04:47</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>06acdfea0f3f5200a8586509b1050e75</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Description</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_06acdfea0f3f5200a8586509b1050e75</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-07 10:04:47</sys_updated_on><type>string</type><value/></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>02b925934f02220023bf3879b110c77c</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>Description</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_018cdbea0f3f5200a8586509b1050eda</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>Category</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 10:04:15</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>018cdbea0f3f5200a8586509b1050eda</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Category</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_018cdbea0f3f5200a8586509b1050eda</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-07 10:04:15</sys_updated_on><type>string</type><value/></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>46b925934f02220023bf3879b110c77b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>Category</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_c7345f6a0f3f5200a8586509b1050ec1</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn"><sys_rest_message_fn action="INSERT_OR_UPDATE"><basic_auth_password/><basic_auth_user/><content/><function_name>get</function_name><lock>false</lock><protocol_name/><rest_endpoint>https://fieldview.liplc.com/svc_cognizant.php</rest_endpoint><rest_message display_value="AandO">7d245f6a0f3f5200a8586509b1050ebf</rest_message><sys_class_name>sys_rest_message_fn</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 09:27:56</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>c7345f6a0f3f5200a8586509b1050ec1</sys_id><sys_mod_count>0</sys_mod_count><sys_name>get</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_c7345f6a0f3f5200a8586509b1050ec1</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-07 09:27:56</sys_updated_on><use_basic_auth>false</use_basic_auth><use_mid_server/><use_mutual_auth>false</use_mutual_auth></sys_rest_message_fn></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>02b96d174f82220023bf3879b110c709</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>get</target_name>
+<type>HTTP Method</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_87345f6a0f3f5200a8586509b1050ec2</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn"><sys_rest_message_fn action="INSERT_OR_UPDATE"><basic_auth_password/><basic_auth_user/><content/><function_name>delete</function_name><lock>false</lock><protocol_name/><rest_endpoint>https://fieldview.liplc.com/svc_cognizant.php</rest_endpoint><rest_message display_value="AandO">7d245f6a0f3f5200a8586509b1050ebf</rest_message><sys_class_name>sys_rest_message_fn</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 09:27:56</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>87345f6a0f3f5200a8586509b1050ec2</sys_id><sys_mod_count>0</sys_mod_count><sys_name>delete</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_87345f6a0f3f5200a8586509b1050ec2</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-07 09:27:56</sys_updated_on><use_basic_auth>false</use_basic_auth><use_mid_server/><use_mutual_auth>false</use_mutual_auth></sys_rest_message_fn></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>0ab925934f02220023bf3879b110c77c</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>delete</target_name>
+<type>HTTP Method</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_43345f6a0f3f5200a8586509b1050ec2</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn"><sys_rest_message_fn action="INSERT_OR_UPDATE"><basic_auth_password/><basic_auth_user/><content/><function_name>put</function_name><lock>false</lock><protocol_name/><rest_endpoint>https://fieldview.liplc.com/svc_cognizant.php</rest_endpoint><rest_message display_value="AandO">7d245f6a0f3f5200a8586509b1050ebf</rest_message><sys_class_name>sys_rest_message_fn</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 09:27:56</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>43345f6a0f3f5200a8586509b1050ec2</sys_id><sys_mod_count>0</sys_mod_count><sys_name>put</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_43345f6a0f3f5200a8586509b1050ec2</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-07 09:27:56</sys_updated_on><use_basic_auth>false</use_basic_auth><use_mid_server/><use_mutual_auth>false</use_mutual_auth></sys_rest_message_fn></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>0eb925934f02220023bf3879b110c77b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>put</target_name>
+<type>HTTP Method</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_0f345f6a0f3f5200a8586509b1050ec1</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn"><sys_rest_message_fn action="INSERT_OR_UPDATE"><basic_auth_password>jfZwjjoDTAs=</basic_auth_password><basic_auth_user>Deepti.Dixit</basic_auth_user><content>{"Action":"${Action}", "TicketType":"${TicketType}" ,  "Number":"${Number}", "ShortDescription":"${ShortDescription}" , "Company":"${Company}", "LocationID":"${LocationID}",  "Priority": "${Priority}", "Category": "${Category}", "Subcategory": "${Subcategory}" , "Location": "${Location}", "Street": "${Street}", "ZIPCode": "${ZIPCode}", "City": "${City}", "State/Province": "${State/Province}", "Country": "${Country}","Description": "${Description}","ReportedBy": "${ReportedBy}", "HomePhone": "${HomePhone}", "Email": "${Email}","ConfigurationItem": "${ConfigurationItem}","Comment": "${Comment}","FVTicketID":"${FVTicketID}","PostedBy":"${PostedBy}" ,"UpdatedBy" :"${UpdatedBy}" }</content><function_name>post</function_name><lock>false</lock><protocol_name/><rest_endpoint>https://fieldview.liplc.com/svc_cognizant.php</rest_endpoint><rest_message display_value="AandO">7d245f6a0f3f5200a8586509b1050ebf</rest_message><sys_class_name>sys_rest_message_fn</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 09:27:56</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>0f345f6a0f3f5200a8586509b1050ec1</sys_id><sys_mod_count>9</sys_mod_count><sys_name>post</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_0f345f6a0f3f5200a8586509b1050ec1</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-16 07:14:09</sys_updated_on><use_basic_auth>false</use_basic_auth><use_mid_server/><use_mutual_auth>false</use_mutual_auth></sys_rest_message_fn></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>42b925934f02220023bf3879b110c77b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>post</target_name>
+<type>HTTP Method</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_0f345f6a0f3f5200a8586509b1050ec1</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn"><sys_rest_message_fn action="INSERT_OR_UPDATE"><basic_auth_password>jfZwjjoDTAs=</basic_auth_password><basic_auth_user>Deepti.Dixit</basic_auth_user><content>{"Action":"${Action}", "TicketType":"${TicketType}" ,  "Number":"${Number}", "ShortDescription":"${ShortDescription}" , "Company":"${Company}", "LocationID":"${LocationID}",  "Priority": "${Priority}", "Category": "${Category}", "Subcategory": "${Subcategory}" , "Location": "${Location}", "Street": "${Street}", "ZIPCode": "${ZIPCode}", "City": "${City}", "State/Province": "${State/Province}", "Country": "${Country}","Description": "${Description}","ReportedBy": "${ReportedBy}", "HomePhone": "${HomePhone}", "Email": "${Email}","ConfigurationItem": "${ConfigurationItem}","Comment": "${Comment}", "FVTicketID":"${FVTicketID}","PostedBy":"${PostedBy}" ,"UpdatedBy" :"${UpdatedBy}" }</content><function_name>post</function_name><lock>false</lock><protocol_name/><rest_endpoint>https://fieldview.liplc.com/svc_cognizant.php</rest_endpoint><rest_message display_value="AandO">7d245f6a0f3f5200a8586509b1050ebf</rest_message><sys_class_name>sys_rest_message_fn</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 09:27:56</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>0f345f6a0f3f5200a8586509b1050ec1</sys_id><sys_mod_count>10</sys_mod_count><sys_name>post</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_0f345f6a0f3f5200a8586509b1050ec1</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-16 10:41:26</sys_updated_on><use_basic_auth>false</use_basic_auth><use_mid_server/><use_mutual_auth>false</use_mutual_auth></sys_rest_message_fn></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>0ab96d174f82220023bf3879b110c709</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>post</target_name>
+<type>HTTP Method</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_7d245f6a0f3f5200a8586509b1050ebf</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message"><sys_rest_message action="INSERT_OR_UPDATE"><access>package_private</access><basic_auth_password/><basic_auth_user/><description/><name>AandO</name><protocol_name/><rest_endpoint>https://fieldview.liplc.com/svc_cognizant.php</rest_endpoint><sys_class_name>sys_rest_message</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 09:27:56</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>7d245f6a0f3f5200a8586509b1050ebf</sys_id><sys_mod_count>0</sys_mod_count><sys_name>AandO</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_7d245f6a0f3f5200a8586509b1050ebf</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-07 09:27:56</sys_updated_on><use_basic_auth>false</use_basic_auth><use_mutual_auth>false</use_mutual_auth></sys_rest_message></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>0eb96d174f82220023bf3879b110c708</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>AandO</target_name>
+<type>REST Message</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_1af58a670f7b9200a8586509b1050ed2</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>Street</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-10 06:20:01</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>1af58a670f7b9200a8586509b1050ed2</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Street</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_1af58a670f7b9200a8586509b1050ed2</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-10 06:20:01</sys_updated_on><type>string</type><value/></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>c6b925934f02220023bf3879b110c77b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>Street</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_28f79d190fc42600efa3a218b1050e3d</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>PostedBy</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-15 13:29:10</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>28f79d190fc42600efa3a218b1050e3d</sys_id><sys_mod_count>0</sys_mod_count><sys_name>PostedBy</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_28f79d190fc42600efa3a218b1050e3d</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-15 13:29:10</sys_updated_on><type>string</type><value/></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>82b925934f02220023bf3879b110c77c</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>PostedBy</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_88bb49610fc82600efa3a218b1050e3f</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>UpdatedBy</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-16 07:13:15</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>88bb49610fc82600efa3a218b1050e3f</sys_id><sys_mod_count>0</sys_mod_count><sys_name>UpdatedBy</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_88bb49610fc82600efa3a218b1050e3f</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-16 07:13:15</sys_updated_on><type>string</type><value/></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>42b96d174f82220023bf3879b110c709</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>UpdatedBy</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_79779baa0f3f5200a8586509b1050e9d</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>Company</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 09:42:22</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>79779baa0f3f5200a8586509b1050e9d</sys_id><sys_mod_count>2</sys_mod_count><sys_name>Company</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_79779baa0f3f5200a8586509b1050e9d</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-10 06:19:43</sys_updated_on><type>string</type><value>bard</value></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>4eb925934f02220023bf3879b110c77b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>Company</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_79779baa0f3f5200a8586509b1050e9d</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>Company</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 09:42:22</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>79779baa0f3f5200a8586509b1050e9d</sys_id><sys_mod_count>3</sys_mod_count><sys_name>Company</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_79779baa0f3f5200a8586509b1050e9d</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-14 13:21:08</sys_updated_on><type>string</type><value/></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>06b96d174f82220023bf3879b110c708</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>Company</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_5da71b2a0f3f5200a8586509b1050e28</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>Number</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 09:42:58</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>5da71b2a0f3f5200a8586509b1050e28</sys_id><sys_mod_count>3</sys_mod_count><sys_name>Number</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_5da71b2a0f3f5200a8586509b1050e28</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-14 13:20:54</sys_updated_on><type>string</type><value/></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>82b925934f02220023bf3879b110c77b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>Number</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_5da71b2a0f3f5200a8586509b1050e28</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>Number</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 09:42:58</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>5da71b2a0f3f5200a8586509b1050e28</sys_id><sys_mod_count>2</sys_mod_count><sys_name>Number</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_5da71b2a0f3f5200a8586509b1050e28</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-10 06:19:15</sys_updated_on><type>string</type><value>INC123456</value></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>4ab96d174f82220023bf3879b110c709</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>Number</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_54dc53ea0f3f5200a8586509b1050e74</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>Email</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 10:05:28</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>54dc53ea0f3f5200a8586509b1050e74</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Email</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_54dc53ea0f3f5200a8586509b1050e74</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-07 10:05:28</sys_updated_on><type>string</type><value/></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>4eb96d174f82220023bf3879b110c708</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>Email</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_457c9bea0f3f5200a8586509b1050e90</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>Location</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 10:04:00</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>457c9bea0f3f5200a8586509b1050e90</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Location</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_457c9bea0f3f5200a8586509b1050e90</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-07 10:04:00</sys_updated_on><type>string</type><value/></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>46b925934f02220023bf3879b110c77c</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>Location</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_38e795590fc42600efa3a218b1050ef5</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>FVTicketID</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-15 13:28:04</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>38e795590fc42600efa3a218b1050ef5</sys_id><sys_mod_count>0</sys_mod_count><sys_name>FVTicketID</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_38e795590fc42600efa3a218b1050ef5</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-15 13:28:04</sys_updated_on><type>string</type><value/></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>4ab925934f02220023bf3879b110c77b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>FVTicketID</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_34979baa0f3f5200a8586509b1050e29</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>LocationID</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 09:42:43</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>34979baa0f3f5200a8586509b1050e29</sys_id><sys_mod_count>1</sys_mod_count><sys_name>LocationID</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_34979baa0f3f5200a8586509b1050e29</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-07 09:52:30</sys_updated_on><type>string</type><value>12345</value></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>4ab96d174f82220023bf3879b110c708</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>LocationID</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_rest_message_fn_parameters_34979baa0f3f5200a8586509b1050e29</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters"><sys_rest_message_fn_parameters action="INSERT_OR_UPDATE"><name>LocationID</name><rest_message_function display_value="post">0f345f6a0f3f5200a8586509b1050ec1</rest_message_function><sys_class_name>sys_rest_message_fn_parameters</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-07 09:42:43</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>34979baa0f3f5200a8586509b1050e29</sys_id><sys_mod_count>2</sys_mod_count><sys_name>LocationID</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_rest_message_fn_parameters_34979baa0f3f5200a8586509b1050e29</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-14 13:20:52</sys_updated_on><type>string</type><value/></sys_rest_message_fn_parameters></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>46b96d174f82220023bf3879b110c709</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>LocationID</target_name>
+<type>Variable Substitutions</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_846ef1670f7b9200a8586509b1050e48</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties"><sys_properties action="INSERT_OR_UPDATE"><choices/><description>AnO license key</description><ignore_cache>false</ignore_cache><is_private>false</is_private><name>AandO_licensekey</name><read_roles/><suffix/><sys_class_name>sys_properties</sys_class_name><sys_created_by>sivaranjani.duvvuri</sys_created_by><sys_created_on>2016-06-10 05:48:36</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>846ef1670f7b9200a8586509b1050e48</sys_id><sys_mod_count>0</sys_mod_count><sys_name>AandO_licensekey</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_846ef1670f7b9200a8586509b1050e48</sys_update_name><sys_updated_by>sivaranjani.duvvuri</sys_updated_by><sys_updated_on>2016-06-10 05:48:36</sys_updated_on><type>string</type><value>BARD9876</value><write_roles/></sys_properties><sys_translated_text action="delete_multiple" query="documentkey=846ef1670f7b9200a8586509b1050e48"/></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2016-09-29 05:59:16</sys_created_on>
+<sys_id>06b925934f02220023bf3879b110c77c</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>157748687200000000</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2016-09-29 05:59:16</sys_updated_on>
+<table/>
+<target_name>AandO_licensekey</target_name>
+<type>System Property</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value="Integration_AandO">4eb925934f02220023bf3879b110c77a</update_set>
+<view/>
+</sys_update_xml>
+</unload>
