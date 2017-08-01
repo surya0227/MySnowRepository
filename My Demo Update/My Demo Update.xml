@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2017-08-01 09:10:16">
+<sys_remote_update_set action="INSERT_OR_UPDATE">
+<application display_value="Global">global</application>
+<application_name>Global</application_name>
+<application_scope>global</application_scope>
+<application_version/>
+<collisions/>
+<commit_date/>
+<deleted/>
+<description/>
+<inserted/>
+<name>My Demo Update</name>
+<origin_sys_id/>
+<parent display_value=""/>
+<release_date/>
+<remote_base_update_set display_value=""/>
+<remote_parent_id/>
+<remote_sys_id>f81b8e314f14430023bf3879b110c712</remote_sys_id>
+<state>loaded</state>
+<summary/>
+<sys_class_name>sys_remote_update_set</sys_class_name>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2017-08-01 09:10:16</sys_created_on>
+<sys_id>6febc6714f14430023bf3879b110c753</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2017-08-01 09:10:16</sys_updated_on>
+<update_set display_value=""/>
+<update_source display_value=""/>
+<updated/>
+</sys_remote_update_set>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_7889e8af4f51220023bf3879b110c730</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;false&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;false&lt;/action_update&gt;&lt;active&gt;true&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;incident&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition/&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;try&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous /*null when async*/) {
+	
+	g_scratchpad.css            = gs.getProperty('css.base.color');
+	g_scratchpad.hasAttachments = current.hasAttachments();
+	g_scratchpad.managerName    = current.caller_id.manager.getDisplayValue();
+	
+})(current, previous);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;surya.nair&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2016-08-23 13:11:17&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;7889e8af4f51220023bf3879b110c730&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_name&gt;try&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_7889e8af4f51220023bf3879b110c730&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;surya.nair&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2017-08-01 09:07:26&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;before_display&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=7889e8af4f51220023bf3879b110c730"/&gt;&lt;/record_update&gt;</payload>
+<payload_hash>1349905275</payload_hash>
+<remote_update_set display_value="My Demo Update">6febc6714f14430023bf3879b110c753</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2017-08-01 09:10:16</sys_created_on>
+<sys_id>2bebc6714f14430023bf3879b110c754</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15d9d0cc8780000001</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2017-08-01 09:10:16</sys_updated_on>
+<table>incident</table>
+<target_name>try</target_name>
+<type>Business Rule</type>
+<update_domain>global</update_domain>
+<update_guid>c24b4e3545d0430046aed549315018dc</update_guid>
+<update_guid_history>c24b4e3545d0430046aed549315018dc:1349905275,7ff675f9009c0300ed2ebf60edbe7072:1349905275,dd1934ad3cd40300d4b9884761bb6152:1941213382,257039951:257039951,1378772054:1378772054,-143528103:-143528103,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636,1358735063:1358735063,1063146636:1063146636</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_325103044fb3120023bf3879b110c7e4</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;true&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;true&lt;/action_update&gt;&lt;active&gt;false&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;sc_req_item&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition table="sc_req_item"&gt;cat_item=8e88343e4f9e420023bf3879b110c769^EQ&lt;item display_table="sc_cat_item" display_value="Documentum- User Administration" endquery="false" field="cat_item" goto="false" newquery="false" operator="=" or="false" value="8e88343e4f9e420023bf3879b110c769"/&gt;&lt;item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/&gt;&lt;/filter_condition&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;EstimatedDelivery&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+	// Add your code here
+days = current.variables.fulfilment_days;
+var durationInSecs = days * 86400;
+var newDueDate;
+var dc = new DurationCalculator();
+addSchedule(dc);
+dc.setStartDateTime(gs.nowDateTime()); 
+if (dc.calcDuration(durationInSecs)) {
+    newDueDate = dc.getEndDateTime();
+}
+    gs.log("New Due Date: " + newDueDate);  
+
+function addSchedule(durationCalculator) {
+    var scheduleName = "8-5 weekdays";
+    var grSched = new GlideRecord('cmn_schedule');
+    grSched.addQuery('name', scheduleName);
+    grSched.query();
+    if (grSched.next())
+        durationCalculator.setSchedule(grSched.getUniqueValue(), gs.getUserTimeZone());
+}
+
+})(current, previous);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;surya&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2016-05-30 13:42:13&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;325103044fb3120023bf3879b110c7e4&lt;/sys_id&gt;&lt;sys_mod_count&gt;11&lt;/sys_mod_count&gt;&lt;sys_name&gt;EstimatedDelivery&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_325103044fb3120023bf3879b110c7e4&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;surya.nair&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2017-08-01 09:08:35&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;before&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=325103044fb3120023bf3879b110c7e4"/&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-159372751</payload_hash>
+<remote_update_set display_value="My Demo Update">6febc6714f14430023bf3879b110c753</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2017-08-01 09:10:16</sys_created_on>
+<sys_id>63ebc6714f14430023bf3879b110c754</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15d9d0dd5e60000001</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2017-08-01 09:10:16</sys_updated_on>
+<table>sc_req_item</table>
+<target_name>EstimatedDelivery</target_name>
+<type>Business Rule</type>
+<update_domain>global</update_domain>
+<update_guid>8f8b8a35d6d04300a4fc1edfbc680173</update_guid>
+<update_guid_history>8f8b8a35d6d04300a4fc1edfbc680173:-159372751,120711526:120711526,-507727509:-507727509,-650591436:-650591436,1288778042:1288778042,-903510379:-903510379,-1611521214:-1611521214,-903510379:-903510379,-1611521214:-1611521214,-903510379:-903510379,-1611521214:-1611521214</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_8192a4064f9f420023bf3879b110c71c</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;false&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;false&lt;/action_update&gt;&lt;active&gt;true&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;u_test&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;true&lt;/execute_function&gt;&lt;filter_condition/&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;test&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[function onAsync(current) {
+   //This function will be automatically called when this rule is processed.
+   
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;surya&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2015-10-25 14:32:42&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;8192a4064f9f420023bf3879b110c71c&lt;/sys_id&gt;&lt;sys_mod_count&gt;4&lt;/sys_mod_count&gt;&lt;sys_name&gt;test&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_8192a4064f9f420023bf3879b110c71c&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;surya.nair&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2017-08-01 09:08:55&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;async&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=8192a4064f9f420023bf3879b110c71c"/&gt;&lt;/record_update&gt;</payload>
+<payload_hash>1511561763</payload_hash>
+<remote_update_set display_value="My Demo Update">6febc6714f14430023bf3879b110c753</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>surya.nair</sys_created_by>
+<sys_created_on>2017-08-01 09:10:16</sys_created_on>
+<sys_id>ebebc6714f14430023bf3879b110c754</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15d9d0e24000000001</sys_recorded_at>
+<sys_updated_by>surya.nair</sys_updated_by>
+<sys_updated_on>2017-08-01 09:10:16</sys_updated_on>
+<table>u_test</table>
+<target_name>test</target_name>
+<type>Business Rule</type>
+<update_domain>global</update_domain>
+<update_guid>339b067143144300989c43845e91df0e</update_guid>
+<update_guid_history>339b067143144300989c43845e91df0e:1511561763,816620008:816620008</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+</unload>
